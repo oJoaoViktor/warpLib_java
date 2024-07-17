@@ -7,6 +7,9 @@ package VIEW;
 import DAO.ClienteDAO;
 import DTO.ClienteDTO;
 import java.util.Random;
+import java.util.ArrayList;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,14 +17,12 @@ import javax.swing.JOptionPane;
  * @author TRJ1JVL
  */
 public class formClienteVIEW extends javax.swing.JFrame {
-
-    /**
-     * Creates new form formClienteVIEW
-     */
+    
     public formClienteVIEW() {
         initComponents();
         setResizable(false);
         setLocationRelativeTo(null);
+        listarClientes();
     }
 
     /**
@@ -33,8 +34,8 @@ public class formClienteVIEW extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        lbl_Titulo = new javax.swing.JLabel();
+        pnl_cadastro = new javax.swing.JPanel();
+        lbl_tituloCadastro = new javax.swing.JLabel();
         lbl_nomeCompleto = new javax.swing.JLabel();
         txt_nomeUsuario = new javax.swing.JTextField();
         lbl_emailUsuario = new javax.swing.JLabel();
@@ -42,14 +43,19 @@ public class formClienteVIEW extends javax.swing.JFrame {
         txt_cpfUsuario = new javax.swing.JTextField();
         lbl_cpfUsuario = new javax.swing.JLabel();
         btn_cadastrarCliente = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        pnl_gerenciamentoCliente = new javax.swing.JPanel();
+        lbl_tituloGerenciamento = new javax.swing.JLabel();
+        lbl_selecioneCliente = new javax.swing.JLabel();
+        btn_editar = new javax.swing.JButton();
+        cbox_clientList = new javax.swing.JComboBox<>();
+        btn_excluir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.setPreferredSize(new java.awt.Dimension(400, 400));
+        pnl_cadastro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pnl_cadastro.setPreferredSize(new java.awt.Dimension(400, 400));
 
-        lbl_Titulo.setText("CADASTRO");
+        lbl_tituloCadastro.setText("CADASTRO");
 
         lbl_nomeCompleto.setText("Nome completo:");
 
@@ -64,18 +70,18 @@ public class formClienteVIEW extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnl_cadastroLayout = new javax.swing.GroupLayout(pnl_cadastro);
+        pnl_cadastro.setLayout(pnl_cadastroLayout);
+        pnl_cadastroLayout.setHorizontalGroup(
+            pnl_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_cadastroLayout.createSequentialGroup()
+                .addGroup(pnl_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnl_cadastroLayout.createSequentialGroup()
                         .addGap(169, 169, 169)
-                        .addComponent(lbl_Titulo))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lbl_tituloCadastro))
+                    .addGroup(pnl_cadastroLayout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(pnl_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lbl_nomeCompleto)
                             .addComponent(txt_nomeUsuario)
                             .addComponent(txt_emailUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
@@ -85,11 +91,11 @@ public class formClienteVIEW extends javax.swing.JFrame {
                             .addComponent(btn_cadastrarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        pnl_cadastroLayout.setVerticalGroup(
+            pnl_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_cadastroLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addComponent(lbl_Titulo)
+                .addComponent(lbl_tituloCadastro)
                 .addGap(42, 42, 42)
                 .addComponent(lbl_nomeCompleto)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -107,22 +113,59 @@ public class formClienteVIEW extends javax.swing.JFrame {
                 .addContainerGap(74, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, java.awt.BorderLayout.LINE_START);
+        getContentPane().add(pnl_cadastro, java.awt.BorderLayout.LINE_START);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pnl_gerenciamentoCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 398, Short.MAX_VALUE)
+        lbl_tituloGerenciamento.setText("GERENCIAMENTO DE CLIENTES");
+
+        lbl_selecioneCliente.setText("Selecione o cliente:");
+
+        btn_editar.setText("Editar");
+        btn_editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_editarActionPerformed(evt);
+            }
+        });
+
+        btn_excluir.setText("Excluir");
+
+        javax.swing.GroupLayout pnl_gerenciamentoClienteLayout = new javax.swing.GroupLayout(pnl_gerenciamentoCliente);
+        pnl_gerenciamentoCliente.setLayout(pnl_gerenciamentoClienteLayout);
+        pnl_gerenciamentoClienteLayout.setHorizontalGroup(
+            pnl_gerenciamentoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_gerenciamentoClienteLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_tituloGerenciamento)
+                .addGap(116, 116, 116))
+            .addGroup(pnl_gerenciamentoClienteLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(pnl_gerenciamentoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lbl_selecioneCliente)
+                    .addGroup(pnl_gerenciamentoClienteLayout.createSequentialGroup()
+                        .addComponent(btn_editar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbox_clientList, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 398, Short.MAX_VALUE)
+        pnl_gerenciamentoClienteLayout.setVerticalGroup(
+            pnl_gerenciamentoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnl_gerenciamentoClienteLayout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(lbl_tituloGerenciamento)
+                .addGap(42, 42, 42)
+                .addComponent(lbl_selecioneCliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbox_clientList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnl_gerenciamentoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_editar)
+                    .addComponent(btn_excluir))
+                .addContainerGap(234, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, java.awt.BorderLayout.CENTER);
+        getContentPane().add(pnl_gerenciamentoCliente, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -130,7 +173,13 @@ public class formClienteVIEW extends javax.swing.JFrame {
     private void btn_cadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrarClienteActionPerformed
         cadastrarCliente();
         clearFields();
+        listarClientes();
     }//GEN-LAST:event_btn_cadastrarClienteActionPerformed
+
+    private void btn_editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_editarActionPerformed
+        openEditScreen(collectMatricula());
+        listarClientes();
+    }//GEN-LAST:event_btn_editarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -196,19 +245,77 @@ public class formClienteVIEW extends javax.swing.JFrame {
         txt_cpfUsuario.setText("");
     }
 
+    private int collectMatricula() {
+        int matricula = 0;
+        try {
+            String selectedItem = (String) cbox_clientList.getSelectedItem();
+            if (selectedItem != null) {
+                String[] parts = selectedItem.split(" - ");
+                matricula = Integer.parseInt(parts[0]);
+            }
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "collectMatricula()" + erro);
+        }
+        return matricula;
+    }
+    
+    private void excludeCliente(){
+        int id_cliente;
+        ClienteDAO objClienteDAO = new ClienteDAO();
+        ClienteDTO objClienteDTO = objClienteDAO.pesquisarClienteMatricula(collectMatricula());
+        id_cliente = objClienteDTO.getId_cliente();
+        objClienteDAO.excludeCliente(objClienteDTO);
+        //CONTINUAR EXCLUSAO
+    }
+
     private int generateRandomNumber() {
         Random random = new Random();
         int randomNumber = random.nextInt(999999);
         return randomNumber;
     }
+
+    private void listarClientes() {
+        try {
+            ClienteDAO objClienteDAO = new ClienteDAO();
+            this.cbox_clientList.removeAllItems();
+            ArrayList<ClienteDTO> clientList = objClienteDAO.pesquisarCliente();
+            for (ClienteDTO cliente : clientList) {
+                String item = cliente.getMatricula() + " - " + cliente.getNome();
+                this.cbox_clientList.addItem(item);
+            }
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "listarClientes(): " + erro);
+        }
+    }
+
+    private void openEditScreen(int matricula) {
+        try {
+            ClienteDAO objClienteDAO = new ClienteDAO();
+            ClienteDTO objClienteDTO = objClienteDAO.pesquisarClienteMatricula(matricula);
+            JDialog dialog = new JDialog();
+            if (objClienteDTO != null) {
+                formEditClienteVIEW editScreen = new formEditClienteVIEW(dialog, rootPaneCheckingEnabled, objClienteDTO);
+                editScreen.setVisible(true);
+            }
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Houve um erro ao abrir a tela de edição de cliente: " + erro);
+        }
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_cadastrarCliente;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lbl_Titulo;
+    private javax.swing.JButton btn_editar;
+    private javax.swing.JButton btn_excluir;
+    private javax.swing.JComboBox<String> cbox_clientList;
     private javax.swing.JLabel lbl_cpfUsuario;
     private javax.swing.JLabel lbl_emailUsuario;
     private javax.swing.JLabel lbl_nomeCompleto;
+    private javax.swing.JLabel lbl_selecioneCliente;
+    private javax.swing.JLabel lbl_tituloCadastro;
+    private javax.swing.JLabel lbl_tituloGerenciamento;
+    private javax.swing.JPanel pnl_cadastro;
+    private javax.swing.JPanel pnl_gerenciamentoCliente;
     private javax.swing.JTextField txt_cpfUsuario;
     private javax.swing.JTextField txt_emailUsuario;
     private javax.swing.JTextField txt_nomeUsuario;

@@ -3,7 +3,7 @@ package DTO;
 public class ClienteDTO {
 
     private String nome, email, cpf;
-    private int matricula;
+    private int id_cliente, matricula;
 
     public String getNome() {
         return nome;
@@ -35,5 +35,13 @@ public class ClienteDTO {
 
     public void setMatricula(int matricula) {
         this.matricula = matricula;
+    }
+
+    public int getId_cliente() {
+        return id_cliente;
+    }
+
+    public void setId_cliente(int id_cliente) {
+        this.id_cliente = id_cliente;
     }
 }
