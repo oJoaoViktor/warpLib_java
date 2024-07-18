@@ -51,8 +51,20 @@ public class ClienteDAO {
         }
     }
 
-    public void excludeCliente(ClienteDTO objClienteDTO){
-        String sql = "delete from funcionario where id_cliente=?";
+    public void excludeCliente(ClienteDTO objClienteDTO) {
+        String sql = "delete from cliente where id_cliente=?;";
+
+        conn = new ConexaoDAO().conectaBD();
+        try {
+            pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, objClienteDTO.getId_cliente());
+            pstm.execute();
+            JOptionPane.showMessageDialog(null, "Cliente excluído com sucesso.");
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "ClienteDAO - excludeCliente():" + erro);
+        } finally{
+            closeResources(conn, pstm);
+        }
     }
 
     public void closeResources(Connection conn, PreparedStatement pstm) {
@@ -73,7 +85,7 @@ public class ClienteDAO {
     }
 
     public ArrayList<ClienteDTO> pesquisarCliente() {
-        String sql = "select * from cliente";
+        String sql = "select * from cliente order by nome;";
         conn = new ConexaoDAO().conectaBD();
         try {
             pstm = conn.prepareStatement(sql);

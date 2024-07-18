@@ -8,7 +8,6 @@ import DAO.ClienteDAO;
 import DTO.ClienteDTO;
 import java.util.Random;
 import java.util.ArrayList;
-import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
@@ -17,7 +16,7 @@ import javax.swing.JOptionPane;
  * @author TRJ1JVL
  */
 public class formClienteVIEW extends javax.swing.JFrame {
-    
+
     public formClienteVIEW() {
         initComponents();
         setResizable(false);
@@ -49,6 +48,7 @@ public class formClienteVIEW extends javax.swing.JFrame {
         btn_editar = new javax.swing.JButton();
         cbox_clientList = new javax.swing.JComboBox<>();
         btn_excluir = new javax.swing.JButton();
+        btn_voltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -129,15 +129,23 @@ public class formClienteVIEW extends javax.swing.JFrame {
         });
 
         btn_excluir.setText("Excluir");
+        btn_excluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_excluirActionPerformed(evt);
+            }
+        });
+
+        btn_voltar.setText("Voltar");
+        btn_voltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_voltarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnl_gerenciamentoClienteLayout = new javax.swing.GroupLayout(pnl_gerenciamentoCliente);
         pnl_gerenciamentoCliente.setLayout(pnl_gerenciamentoClienteLayout);
         pnl_gerenciamentoClienteLayout.setHorizontalGroup(
             pnl_gerenciamentoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_gerenciamentoClienteLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lbl_tituloGerenciamento)
-                .addGap(116, 116, 116))
             .addGroup(pnl_gerenciamentoClienteLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(pnl_gerenciamentoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,6 +156,15 @@ public class formClienteVIEW extends javax.swing.JFrame {
                         .addComponent(btn_excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(cbox_clientList, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(40, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_gerenciamentoClienteLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(pnl_gerenciamentoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_gerenciamentoClienteLayout.createSequentialGroup()
+                        .addComponent(lbl_tituloGerenciamento)
+                        .addGap(116, 116, 116))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_gerenciamentoClienteLayout.createSequentialGroup()
+                        .addComponent(btn_voltar)
+                        .addContainerGap())))
         );
         pnl_gerenciamentoClienteLayout.setVerticalGroup(
             pnl_gerenciamentoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,7 +179,9 @@ public class formClienteVIEW extends javax.swing.JFrame {
                 .addGroup(pnl_gerenciamentoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_editar)
                     .addComponent(btn_excluir))
-                .addContainerGap(234, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 205, Short.MAX_VALUE)
+                .addComponent(btn_voltar)
+                .addContainerGap())
         );
 
         getContentPane().add(pnl_gerenciamentoCliente, java.awt.BorderLayout.CENTER);
@@ -180,6 +199,15 @@ public class formClienteVIEW extends javax.swing.JFrame {
         openEditScreen(collectMatricula());
         listarClientes();
     }//GEN-LAST:event_btn_editarActionPerformed
+
+    private void btn_excluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluirActionPerformed
+        excludeCliente();
+        listarClientes();
+    }//GEN-LAST:event_btn_excluirActionPerformed
+
+    private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
+        callHomeScreen();
+    }//GEN-LAST:event_btn_voltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -239,6 +267,12 @@ public class formClienteVIEW extends javax.swing.JFrame {
         }
     }
 
+    private void callHomeScreen() {
+        formHomeVIEW homeScreen = new formHomeVIEW();
+        dispose();
+        homeScreen.setVisible(true);
+    }
+
     private void clearFields() {
         txt_nomeUsuario.setText("");
         txt_emailUsuario.setText("");
@@ -258,14 +292,13 @@ public class formClienteVIEW extends javax.swing.JFrame {
         }
         return matricula;
     }
-    
-    private void excludeCliente(){
+
+    private void excludeCliente() {
         int id_cliente;
         ClienteDAO objClienteDAO = new ClienteDAO();
         ClienteDTO objClienteDTO = objClienteDAO.pesquisarClienteMatricula(collectMatricula());
         id_cliente = objClienteDTO.getId_cliente();
         objClienteDAO.excludeCliente(objClienteDTO);
-        //CONTINUAR EXCLUSAO
     }
 
     private int generateRandomNumber() {
@@ -307,6 +340,7 @@ public class formClienteVIEW extends javax.swing.JFrame {
     private javax.swing.JButton btn_cadastrarCliente;
     private javax.swing.JButton btn_editar;
     private javax.swing.JButton btn_excluir;
+    private javax.swing.JButton btn_voltar;
     private javax.swing.JComboBox<String> cbox_clientList;
     private javax.swing.JLabel lbl_cpfUsuario;
     private javax.swing.JLabel lbl_emailUsuario;
