@@ -9,6 +9,7 @@ package VIEW;
  * @author TRJ1JVL
  */
 public class formHomeVIEW extends javax.swing.JFrame {
+
     public formHomeVIEW() {
         initComponents();
         setResizable(false);
@@ -35,6 +36,11 @@ public class formHomeVIEW extends javax.swing.JFrame {
         jLabel1.setText("HOME");
 
         jButton2.setText("Livros");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Aluguel");
 
@@ -83,6 +89,10 @@ public class formHomeVIEW extends javax.swing.JFrame {
         callClienteScreen();
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        callLivroScreen();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -118,10 +128,16 @@ public class formHomeVIEW extends javax.swing.JFrame {
             }
         });
     }
-    
-    public void callClienteScreen(){
+
+    public void callClienteScreen() {
         formClienteVIEW objformClienteVIEW = new formClienteVIEW();
         objformClienteVIEW.setVisible(true);
+        dispose();
+    }
+
+    public void callLivroScreen() {
+        formLivroVIEW objFormLivroVIEW = new formLivroVIEW();
+        objFormLivroVIEW.setVisible(true);
         dispose();
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
