@@ -84,7 +84,8 @@ public class LivroDAO {
             }
         }
     }
-
+    
+        
     public ArrayList<LivroDTO> listarLivros() {
         String sql = "select * from livro order by titulo;";
         conn = new ConexaoDAO().conectaBD();
