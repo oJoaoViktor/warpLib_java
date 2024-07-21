@@ -15,6 +15,21 @@ public class LivroDAO {
     ResultSet rs;
     ArrayList<LivroDTO> bookList = new ArrayList<>();
 
+    public void atualizarQuantidadeDisponivel(LivroDTO objLivroDTO) {
+        String sql = "update livro set qnt_disponivel=? where id_livro=?";
+        conn = new ConexaoDAO().conectaBD();
+        try {
+            pstm = conn.prepareStatement(sql);
+            pstm.setInt(1, objLivroDTO.getQnt_disponivel() - 1);
+            pstm.setInt(2, objLivroDTO.getId_livro());
+            pstm.executeUpdate();
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "LivroDAO - atualizarQuantidadeDisponivel(): " + erro);
+        } finally {
+            closeResources(conn, pstm);
+        }
+    }
+
     public void cadastrarLivro(LivroDTO objLivroDTO) {
         String sql = "insert into livro (isbn, autor, titulo, qnt_disponivel) values (?, ?, ?, ?)";
         conn = new ConexaoDAO().conectaBD();
@@ -84,10 +99,9 @@ public class LivroDAO {
             }
         }
     }
-    
-        
+
     public ArrayList<LivroDTO> listarLivros() {
-        String sql = "select * from livro order by titulo;";
+        String sql = "select * from livro where qnt_disponivel >0 order by titulo";
         conn = new ConexaoDAO().conectaBD();
         try {
             pstm = conn.prepareStatement(sql);
@@ -116,6 +130,30 @@ public class LivroDAO {
         try {
             pstm = conn.prepareStatement(sql);
             pstm.setString(1, isbn);
+            ResultSet rs = pstm.executeQuery();
+            if (rs.next()) {
+                livro = new LivroDTO();
+                livro.setId_livro(rs.getInt("id_livro"));
+                livro.setIsbn(rs.getString("isbn"));
+                livro.setAutor(rs.getString("autor"));
+                livro.setTitulo(rs.getString("titulo"));
+                livro.setQnt_disponivel(rs.getInt("qnt_disponivel"));
+            }
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "LivroDAO - pesquisarlivroMatricula(): " + erro);
+        } finally {
+            closeResources(conn, pstm);
+        }
+        return livro;
+    }
+
+    public LivroDTO pesquisarLivroTitulo(String titulo) {
+        LivroDTO livro = null;
+        String sql = "select * from livro where titulo=?";
+        conn = new ConexaoDAO().conectaBD();
+        try {
+            pstm = conn.prepareStatement(sql);
+            pstm.setString(1, titulo);
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 livro = new LivroDTO();

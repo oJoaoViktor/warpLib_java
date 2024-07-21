@@ -62,7 +62,7 @@ public class ClienteDAO {
             JOptionPane.showMessageDialog(null, "Cliente excluído com sucesso.");
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "ClienteDAO - excludeCliente():" + erro);
-        } finally{
+        } finally {
             closeResources(conn, pstm);
         }
     }
@@ -114,6 +114,30 @@ public class ClienteDAO {
         try {
             pstm = conn.prepareStatement(sql);
             pstm.setInt(1, matricula);
+            ResultSet rs = pstm.executeQuery();
+            if (rs.next()) {
+                cliente = new ClienteDTO();
+                cliente.setId_cliente(rs.getInt("id_cliente"));
+                cliente.setMatricula(rs.getInt("matricula"));
+                cliente.setNome(rs.getString("nome"));
+                cliente.setEmail(rs.getString("email"));
+                cliente.setCpf(rs.getString("cpf"));
+            }
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "pesquisarClienteMatricula(): " + erro);
+        } finally {
+            closeResources(conn, pstm);
+        }
+        return cliente;
+    }
+
+    public ClienteDTO pesquisarClienteNome(String nome) {
+        ClienteDTO cliente = null;
+        String sql = "select * from cliente where nome=?";
+        conn = new ConexaoDAO().conectaBD();
+        try {
+            pstm = conn.prepareStatement(sql);
+            pstm.setString(1, nome);
             ResultSet rs = pstm.executeQuery();
             if (rs.next()) {
                 cliente = new ClienteDTO();

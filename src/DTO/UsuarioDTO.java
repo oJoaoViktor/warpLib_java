@@ -2,7 +2,7 @@ package DTO;
 
 public class UsuarioDTO {
     private int id_usuario;
-    private String nome_usuario, senha_usuario;
+    private String username, password;
 
     /**
      * @return the id_usuario
@@ -19,30 +19,30 @@ public class UsuarioDTO {
     }
 
     /**
-     * @return the nome_usuario
+     * @return the username
      */
-    public String getNome_usuario() {
-        return nome_usuario;
+    public String getUsername() {
+        return username;
     }
 
     /**
-     * @param nome_usuario the nome_usuario to set
+     * @param username the username to set
      */
-    public void setNome_usuario(String nome_usuario) {
-        this.nome_usuario = nome_usuario;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     /**
-     * @return the senha_usuario
+     * @return the password
      */
-    public String getSenha_usuario() {
-        return senha_usuario;
+    public String getPassword() {
+        return password;
     }
 
     /**
-     * @param senha_usuario the senha_usuario to set
+     * @param password the password to set
      */
-    public void setSenha_usuario(String senha_usuario) {
-        this.senha_usuario = senha_usuario;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

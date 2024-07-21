@@ -44,6 +44,7 @@ public class formAluguelVIEW extends javax.swing.JFrame {
         tbl_listaLivros = new javax.swing.JTable();
         btn_alugarLivro = new javax.swing.JButton();
         btn_gerenciarAlugueis = new javax.swing.JButton();
+        btn_voltarHome = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -61,7 +62,15 @@ public class formAluguelVIEW extends javax.swing.JFrame {
             new String [] {
                 "ISBN", "Título", "Autor", "Quantidade disponível"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(tbl_listaLivros);
 
         btn_alugarLivro.setText("Alugar");
@@ -72,6 +81,18 @@ public class formAluguelVIEW extends javax.swing.JFrame {
         });
 
         btn_gerenciarAlugueis.setText("Gerenciar aluguéis");
+        btn_gerenciarAlugueis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_gerenciarAlugueisActionPerformed(evt);
+            }
+        });
+
+        btn_voltarHome.setText("Voltar");
+        btn_voltarHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_voltarHomeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -79,23 +100,27 @@ public class formAluguelVIEW extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btn_alugarLivro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_gerenciarAlugueis, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1)
-                    .addComponent(lbl_pesquisarCliente)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(cbox_listaClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbox_periodoAluguel, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btn_voltarHome)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(btn_alugarLivro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btn_gerenciarAlugueis, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1)
+                        .addComponent(lbl_pesquisarCliente)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(cbox_listaClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(cbox_periodoAluguel, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addGap(14, 14, 14)
+                .addComponent(btn_voltarHome)
+                .addGap(18, 18, 18)
                 .addComponent(lbl_pesquisarCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -115,7 +140,20 @@ public class formAluguelVIEW extends javax.swing.JFrame {
 
     private void btn_alugarLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alugarLivroActionPerformed
         alugarLivro();
+        listarLivros();
     }//GEN-LAST:event_btn_alugarLivroActionPerformed
+
+    private void btn_voltarHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarHomeActionPerformed
+        formHomeVIEW objFormHomeVIEW = new formHomeVIEW();
+        dispose();
+        objFormHomeVIEW.setVisible(true);
+    }//GEN-LAST:event_btn_voltarHomeActionPerformed
+
+    private void btn_gerenciarAlugueisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_gerenciarAlugueisActionPerformed
+        formGerenciarAluguelVIEW objFormGerenciarAluguelVIEW = new formGerenciarAluguelVIEW();
+        dispose();
+        objFormGerenciarAluguelVIEW.setVisible(true);
+    }//GEN-LAST:event_btn_gerenciarAlugueisActionPerformed
 
     /**
      * @param args the command line arguments
@@ -179,7 +217,7 @@ public class formAluguelVIEW extends javax.swing.JFrame {
                     throw new AssertionError();
             }
             periodo = Integer.parseInt(selectedItem);
-            
+
             ClienteDTO objClienteDTO = objClienteDAO.pesquisarClienteMatricula(matricula);
             LivroDTO objLivroDTO = objLivroDAO.pesquisarLivroISBN(isbn);
             objAluguelDTO.setId_cliente(objClienteDTO.getId_cliente());
@@ -190,6 +228,7 @@ public class formAluguelVIEW extends javax.swing.JFrame {
             System.out.println(objLivroDTO.getId_livro());
             AluguelDAO objAluguelDAO = new AluguelDAO();
             objAluguelDAO.cadastrarAluguel(objAluguelDTO);
+            objLivroDAO.atualizarQuantidadeDisponivel(objLivroDTO);
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(null, "formAluguelVIEW - alugarLivro(): " + erro);
         }
@@ -258,6 +297,7 @@ public class formAluguelVIEW extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_alugarLivro;
     private javax.swing.JButton btn_gerenciarAlugueis;
+    private javax.swing.JButton btn_voltarHome;
     private javax.swing.JComboBox<String> cbox_listaClientes;
     private javax.swing.JComboBox<String> cbox_periodoAluguel;
     private javax.swing.JScrollPane jScrollPane1;

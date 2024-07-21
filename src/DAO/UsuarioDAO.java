@@ -10,20 +10,22 @@ import javax.swing.JOptionPane;
 public class UsuarioDAO {
 
     Connection conn;
+    PreparedStatement pstm;
+    ResultSet rs;
 
     public ResultSet autenticacaoUsuario(UsuarioDTO objusuariodto) {
         conn = new ConexaoDAO().conectaBD();
         try {
             String sql = "select * from usuario where username = ? and password = ?";
-            PreparedStatement pstm = conn.prepareStatement(sql);
-            pstm.setString(1, objusuariodto.getNome_usuario()); //Passa nome do usuário para o primeiro "?"
-            pstm.setString(2, objusuariodto.getSenha_usuario());
-
-            ResultSet rs = pstm.executeQuery();
-            return rs;
+            pstm = conn.prepareStatement(sql);
+            pstm.setString(1, objusuariodto.getUsername()); //Passa nome do usuário para o primeiro "?"
+            pstm.setString(2, objusuariodto.getPassword());
+            rs = pstm.executeQuery();
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "UsuarioDAO: " + erro);
             return null;
+        } finally {
+            return rs;
         }
     }
 }

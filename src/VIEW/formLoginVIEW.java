@@ -9,6 +9,7 @@ import DTO.UsuarioDTO;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import UTILS.RoundedBorder;
 
 /**
  *
@@ -30,63 +31,59 @@ public class formLoginVIEW extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnl_background = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        txtNomeUsuario = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        btnEntrarSistema = new javax.swing.JButton();
-        txtSenhaUsuario = new javax.swing.JPasswordField();
+        lbl_backgroundImage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        pnl_background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBorder(new RoundedBorder(15, new java.awt.Color(48, 48, 48), 3, new java.awt.Color(48, 48, 48)));
+        jPanel1.setForeground(new java.awt.Color(48, 48, 48));
+        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jPanel1.setMaximumSize(new java.awt.Dimension(400, 200));
+        jPanel1.setOpaque(false);
+        jPanel1.setPreferredSize(new java.awt.Dimension(400, 200));
+
         jLabel1.setText("Usuário");
 
-        jLabel2.setText("Senha");
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(jLabel1)
+                .addContainerGap(318, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jLabel1)
+                .addContainerGap(157, Short.MAX_VALUE))
+        );
 
-        btnEntrarSistema.setText("LOGIN");
-        btnEntrarSistema.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEntrarSistemaActionPerformed(evt);
-            }
-        });
+        pnl_background.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 400, 200));
+
+        lbl_backgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/img/background.png"))); // NOI18N
+        pnl_background.add(lbl_backgroundImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(181, 181, 181)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(txtNomeUsuario, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(btnEntrarSistema))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
-                    .addComponent(txtSenhaUsuario))
-                .addContainerGap(180, Short.MAX_VALUE))
+            .addComponent(pnl_background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtSenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(btnEntrarSistema)
-                .addContainerGap(80, Short.MAX_VALUE))
+            .addComponent(pnl_background, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnEntrarSistemaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarSistemaActionPerformed
-        login();
-    }//GEN-LAST:event_btnEntrarSistemaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -125,16 +122,16 @@ public class formLoginVIEW extends javax.swing.JFrame {
 
     private void login(){
         try {
-            String nome_usuario, senha_usuario;
+            String nome_usuario;
+            char[] senha_usuario;
             nome_usuario = txtNomeUsuario.getText(); // É possível inserir essa linha diretamente no setter
-            senha_usuario = txtSenhaUsuario.getText();
+            senha_usuario = txtSenhaUsuario.getPassword();
 
             UsuarioDTO objusuariodto = new UsuarioDTO();
-            objusuariodto.setNome_usuario(nome_usuario);
-            objusuariodto.setSenha_usuario(senha_usuario);
+            objusuariodto.setUsername(nome_usuario);
+            objusuariodto.setPassword(String.valueOf(senha_usuario));
             UsuarioDAO objusuariodao = new UsuarioDAO();
             ResultSet rsusuariodao = objusuariodao.autenticacaoUsuario(objusuariodto);
-            
             if (rsusuariodao.next()) {
                 formHomeVIEW objformprincipalview = new formHomeVIEW();
                 objformprincipalview.setVisible(true);
@@ -142,16 +139,14 @@ public class formLoginVIEW extends javax.swing.JFrame {
             }else{
                 JOptionPane.showMessageDialog(null, "Usuário ou senha inválida.");
             }
-
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "formLoginView: " + erro);
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEntrarSistema;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField txtNomeUsuario;
-    private javax.swing.JPasswordField txtSenhaUsuario;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lbl_backgroundImage;
+    private javax.swing.JPanel pnl_background;
     // End of variables declaration//GEN-END:variables
 }
