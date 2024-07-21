@@ -77,6 +77,11 @@ public class formLoginVIEW extends javax.swing.JFrame {
         btn_login.setText("Login");
         btn_login.setBorder(null);
         btn_login.setBorderPainted(false);
+        btn_login.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_login.setFocusPainted(false);
+        btn_login.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btn_login.setMargin(new java.awt.Insets(3, 14, 3, 14));
+        btn_login.setName(""); // NOI18N
         btn_login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_loginActionPerformed(evt);
@@ -135,10 +140,8 @@ public class formLoginVIEW extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new formLoginVIEW().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new formLoginVIEW().setVisible(true);
         });
     }
 
