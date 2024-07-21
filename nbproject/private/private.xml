@@ -3,10 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/joaoa/Documents/Projects/warpLib_java/src/DAO/AluguelDAO.java</file>
-            <file>file:/C:/Users/joaoa/Documents/Projects/warpLib_java/src/DAO/LivroDAO.java</file>
-            <file>file:/C:/Users/joaoa/Documents/Projects/warpLib_java/src/VIEW/formGerenciarAluguelVIEW.java</file>
-            <file>file:/C:/Users/joaoa/Documents/Projects/warpLib_java/src/DAO/ClienteDAO.java</file>
+            <file>file:/C:/Users/joaoa/Documents/Projects/warpLib_java/src/VIEW/formLoginVIEW.java</file>
+            <file>file:/C:/Users/joaoa/Documents/Projects/warpLib_java/src/UTILS/RoundedBorder.java</file>
         </group>
     </open-files>
 </project-private>
