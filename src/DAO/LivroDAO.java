@@ -30,6 +30,31 @@ public class LivroDAO {
         }
     }
 
+    public LivroDTO bookAlreadyExists(String isbn) {
+        LivroDTO livro = null;
+        String sql = "select * from livro where isbn=?";
+        conn = new ConexaoDAO().conectaBD();
+        try {
+            pstm = conn.prepareStatement(sql);
+            pstm.setString(1, isbn);
+            ResultSet rs = pstm.executeQuery();
+            if (rs.next()) {
+                livro = new LivroDTO();
+                livro.setId_livro(rs.getInt("id_livro"));
+                livro.setAutor(rs.getString("autor"));
+                livro.setTitulo(rs.getString("titulo"));
+                livro.setIsbn(rs.getString("isbn"));
+                livro.setQnt_disponivel(rs.getInt("qnt_disponivel"));
+                return livro;
+            }
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "LivroDAO - bookAlreadyExists():\n" + erro);
+        } finally {
+            closeResources(conn, pstm);
+        }
+        return null;
+    }
+
     public void cadastrarLivro(LivroDTO objLivroDTO) {
         String sql = "insert into livro (isbn, autor, titulo, qnt_disponivel) values (?, ?, ?, ?)";
         conn = new ConexaoDAO().conectaBD();
@@ -49,6 +74,7 @@ public class LivroDAO {
     }
 
     public void editarLivro(LivroDTO objLivroDTO) {
+        System.out.println("Entrou em Editar");
         String sql = "update livro set isbn =?, autor=?, titulo=?, qnt_disponivel=? where id_livro=?";
         conn = new ConexaoDAO().conectaBD();
         try {

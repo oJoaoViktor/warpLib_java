@@ -27,7 +27,7 @@ public class ClienteDAO {
             pstm.execute();
             JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso.");
         } catch (SQLException erro) {
-            JOptionPane.showMessageDialog(null, "Cliente DAO (cadastrarCliente): " + erro);
+            JOptionPane.showMessageDialog(null, "ClienteDAO - cadastrarCliente():\n" + erro);
         } finally {
             closeResources(conn, pstm);
         }
@@ -65,6 +65,31 @@ public class ClienteDAO {
         } finally {
             closeResources(conn, pstm);
         }
+    }
+
+    public ClienteDTO clientAlreadyExists(String cpf) {
+        ClienteDTO cliente = null;
+        String sql = "select * from cliente where cpf=?";
+        conn = new ConexaoDAO().conectaBD();
+        try {
+            pstm = conn.prepareStatement(sql);
+            pstm.setString(1, cpf);
+            ResultSet rs = pstm.executeQuery();
+            if (rs.next()) {
+                cliente = new ClienteDTO();
+                cliente.setId_cliente(rs.getInt("id_cliente"));
+                cliente.setMatricula(rs.getInt("matricula"));
+                cliente.setNome(rs.getString("nome"));
+                cliente.setEmail(rs.getString("email"));
+                cliente.setCpf(rs.getString("cpf"));
+                return cliente;
+            }
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "ClienteDAO - clienteAlreadyExists():\n" + erro);
+        } finally {
+            closeResources(conn, pstm);
+        }
+        return null;
     }
 
     public void closeResources(Connection conn, PreparedStatement pstm) {

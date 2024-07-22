@@ -157,4 +157,8 @@ public class AluguelDAO {
         }
         return aluguelSelecionado;
     }
+
+//    public boolean alreadyExistsRent(AluguelDTO objAluguelDTO) {
+//        String sql = "select * from aluguel"
+//    }
 }

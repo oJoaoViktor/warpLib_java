@@ -26,7 +26,7 @@ public class formLoginVIEW extends javax.swing.JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
     }
-   
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

@@ -199,6 +199,10 @@ public class formAluguelVIEW extends javax.swing.JFrame {
             AluguelDTO objAluguelDTO = new AluguelDTO();
             matricula = collectMatricula();
             isbn = collectISBN();
+            if (isbn.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Selecione um livro para empréstimo.", "Selecione um Livro", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             String selectedItem = (String) cbox_periodoAluguel.getSelectedItem();
             switch (selectedItem) {
                 case "7 dias":
@@ -214,7 +218,8 @@ public class formAluguelVIEW extends javax.swing.JFrame {
                     selectedItem = "30";
                     break;
                 default:
-                    throw new AssertionError();
+                    JOptionPane.showMessageDialog(this, "Selecione um período de empréstimo.", "Selecione o período", JOptionPane.ERROR_MESSAGE);
+                    return;
             }
             periodo = Integer.parseInt(selectedItem);
 
@@ -227,6 +232,10 @@ public class formAluguelVIEW extends javax.swing.JFrame {
             System.out.println(objClienteDTO.getId_cliente());
             System.out.println(objLivroDTO.getId_livro());
             AluguelDAO objAluguelDAO = new AluguelDAO();
+            if (objAluguelDAO.pesquisarAluguelPorLinha(objAluguelDTO) != null) {
+                JOptionPane.showMessageDialog(this, "O cliente já tem uma reserva igual.", "Reserva já existe", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             objAluguelDAO.cadastrarAluguel(objAluguelDTO);
             objLivroDAO.atualizarQuantidadeDisponivel(objLivroDTO);
         } catch (Exception erro) {

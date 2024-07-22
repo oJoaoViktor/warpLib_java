@@ -6,7 +6,9 @@ package VIEW;
 
 import DAO.ClienteDAO;
 import DTO.ClienteDTO;
+import UTILS.validations;
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 public class formEditClienteVIEW extends javax.swing.JDialog {
 
@@ -33,9 +35,9 @@ public class formEditClienteVIEW extends javax.swing.JDialog {
         txt_nomeUsuario = new javax.swing.JTextField();
         lbl_emailUsuario = new javax.swing.JLabel();
         txt_emailUsuario = new javax.swing.JTextField();
-        txt_cpfUsuario = new javax.swing.JTextField();
         lbl_cpfUsuario = new javax.swing.JLabel();
         btn_confirmarEdicao = new javax.swing.JButton();
+        txt_cpfUsuario = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -57,6 +59,12 @@ public class formEditClienteVIEW extends javax.swing.JDialog {
             }
         });
 
+        try {
+            txt_cpfUsuario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("###.###.###-##")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout pnl_cadastroLayout = new javax.swing.GroupLayout(pnl_cadastro);
         pnl_cadastro.setLayout(pnl_cadastroLayout);
         pnl_cadastroLayout.setHorizontalGroup(
@@ -73,9 +81,9 @@ public class formEditClienteVIEW extends javax.swing.JDialog {
                             .addComponent(txt_nomeUsuario)
                             .addComponent(txt_emailUsuario)
                             .addComponent(lbl_emailUsuario)
-                            .addComponent(txt_cpfUsuario)
                             .addComponent(lbl_cpfUsuario)
-                            .addComponent(btn_confirmarEdicao, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE))))
+                            .addComponent(btn_confirmarEdicao, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
+                            .addComponent(txt_cpfUsuario))))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         pnl_cadastroLayout.setVerticalGroup(
@@ -162,10 +170,31 @@ public class formEditClienteVIEW extends javax.swing.JDialog {
     }
 
     private void atualizarCliente() {
+        ClienteDTO cliente = new ClienteDTO();
         String nome, email, cpf;
         nome = txt_nomeUsuario.getText();
         email = txt_emailUsuario.getText();
         cpf = txt_cpfUsuario.getText();
+        cliente = validations.alreadyExistsCpf(cpf);
+
+        if (nome.isEmpty() || email.isEmpty()) { // Verifica se os campos de nome ou e-mail estão vazios
+            JOptionPane.showMessageDialog(this, "Insira todos os campos corretamente.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return; //Retorna vazio para os campos continuarem preenchidos para o usuário corrigir.
+        }
+        if (!validations.isValidEmail(email)) { //Verifica se o e-mail é válido
+            JOptionPane.showMessageDialog(this, "Insira um e-mail válido.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (!validations.isValidCpf(cpf)) { //Verifica se o CPF é válido
+            JOptionPane.showMessageDialog(this, "Insira um CPF válido.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        if (cliente != null) {
+            if (!cliente.getNome().contains(nome)) { //Verifica se o CPF já existe no banco de dados
+                JOptionPane.showMessageDialog(this, "Já existe um cliente cadastrado com este CPF.", "Erro", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+        }
         ClienteDTO objClienteDTO = new ClienteDTO();
         objClienteDTO.setId_cliente(this.id_cliente);
         objClienteDTO.setNome(nome);
@@ -188,7 +217,7 @@ public class formEditClienteVIEW extends javax.swing.JDialog {
     private javax.swing.JLabel lbl_nomeCompleto;
     private javax.swing.JLabel lbl_tituloCadastro;
     private javax.swing.JPanel pnl_cadastro;
-    private javax.swing.JTextField txt_cpfUsuario;
+    private javax.swing.JFormattedTextField txt_cpfUsuario;
     private javax.swing.JTextField txt_emailUsuario;
     private javax.swing.JTextField txt_nomeUsuario;
     // End of variables declaration//GEN-END:variables

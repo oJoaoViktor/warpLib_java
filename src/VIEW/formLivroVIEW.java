@@ -6,6 +6,7 @@ package VIEW;
 
 import DAO.LivroDAO;
 import DTO.LivroDTO;
+import UTILS.validations;
 import java.util.Random;
 import java.util.ArrayList;
 import javax.swing.JDialog;
@@ -36,7 +37,6 @@ public class formLivroVIEW extends javax.swing.JFrame {
         pnl_cadastro = new javax.swing.JPanel();
         lbl_tituloCadastro = new javax.swing.JLabel();
         lbl_isbnLivro = new javax.swing.JLabel();
-        txt_isbnLivro = new javax.swing.JTextField();
         lbl_tituloLivro = new javax.swing.JLabel();
         txt_tituloLivro = new javax.swing.JTextField();
         txt_autorLivro = new javax.swing.JTextField();
@@ -44,6 +44,7 @@ public class formLivroVIEW extends javax.swing.JFrame {
         btn_cadastrarLivro = new javax.swing.JButton();
         txt_qntDisponivelLivro = new javax.swing.JTextField();
         lbl_qntDisponivelLivro = new javax.swing.JLabel();
+        txt_isbnLivro = new javax.swing.JFormattedTextField();
         pnl_gerenciamentoCliente = new javax.swing.JPanel();
         lbl_tituloGerenciamento = new javax.swing.JLabel();
         lbl_selecioneLivro = new javax.swing.JLabel();
@@ -74,6 +75,12 @@ public class formLivroVIEW extends javax.swing.JFrame {
 
         lbl_qntDisponivelLivro.setText("Quantidade de exemplares:");
 
+        try {
+            txt_isbnLivro.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("#############")));
+        } catch (java.text.ParseException ex) {
+            ex.printStackTrace();
+        }
+
         javax.swing.GroupLayout pnl_cadastroLayout = new javax.swing.GroupLayout(pnl_cadastro);
         pnl_cadastro.setLayout(pnl_cadastroLayout);
         pnl_cadastroLayout.setHorizontalGroup(
@@ -87,14 +94,14 @@ public class formLivroVIEW extends javax.swing.JFrame {
                         .addGap(40, 40, 40)
                         .addGroup(pnl_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lbl_isbnLivro)
-                            .addComponent(txt_isbnLivro)
                             .addComponent(txt_tituloLivro, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
                             .addComponent(lbl_tituloLivro)
                             .addComponent(txt_autorLivro, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
                             .addComponent(lbl_autorLivro)
                             .addComponent(btn_cadastrarLivro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txt_qntDisponivelLivro, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
-                            .addComponent(lbl_qntDisponivelLivro))))
+                            .addComponent(lbl_qntDisponivelLivro)
+                            .addComponent(txt_isbnLivro))))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         pnl_cadastroLayout.setVerticalGroup(
@@ -156,6 +163,15 @@ public class formLivroVIEW extends javax.swing.JFrame {
         pnl_gerenciamentoCliente.setLayout(pnl_gerenciamentoClienteLayout);
         pnl_gerenciamentoClienteLayout.setHorizontalGroup(
             pnl_gerenciamentoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_gerenciamentoClienteLayout.createSequentialGroup()
+                .addContainerGap(122, Short.MAX_VALUE)
+                .addGroup(pnl_gerenciamentoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_gerenciamentoClienteLayout.createSequentialGroup()
+                        .addComponent(lbl_tituloGerenciamento)
+                        .addGap(122, 122, 122))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_gerenciamentoClienteLayout.createSequentialGroup()
+                        .addComponent(btn_voltarHome)
+                        .addContainerGap())))
             .addGroup(pnl_gerenciamentoClienteLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
                 .addGroup(pnl_gerenciamentoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,15 +182,6 @@ public class formLivroVIEW extends javax.swing.JFrame {
                         .addComponent(btn_excluirLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(cbox_bookList, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_gerenciamentoClienteLayout.createSequentialGroup()
-                .addContainerGap(122, Short.MAX_VALUE)
-                .addGroup(pnl_gerenciamentoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_gerenciamentoClienteLayout.createSequentialGroup()
-                        .addComponent(lbl_tituloGerenciamento)
-                        .addGap(122, 122, 122))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_gerenciamentoClienteLayout.createSequentialGroup()
-                        .addComponent(btn_voltarHome)
-                        .addContainerGap())))
         );
         pnl_gerenciamentoClienteLayout.setVerticalGroup(
             pnl_gerenciamentoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,7 +208,6 @@ public class formLivroVIEW extends javax.swing.JFrame {
 
     private void btn_cadastrarLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrarLivroActionPerformed
         cadastrarLivro();
-        clearFields();
         listarLivros();
     }//GEN-LAST:event_btn_cadastrarLivroActionPerformed
 
@@ -211,7 +217,7 @@ public class formLivroVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_editarLivroActionPerformed
 
     private void btn_excluirLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_excluirLivroActionPerformed
-        excludeCliente();
+        excludeLivro();
         listarLivros();
     }//GEN-LAST:event_btn_excluirLivroActionPerformed
 
@@ -257,24 +263,38 @@ public class formLivroVIEW extends javax.swing.JFrame {
 
     private void cadastrarLivro() {
         try {
-            String autor, isbn, titulo;
+            String autor, isbn, titulo, qnt_disponivelTxt;
             int qnt_disponivel;
 
-            autor = txt_autorLivro.getText();
-            isbn = txt_isbnLivro.getText();
-            titulo = txt_tituloLivro.getText();
-            qnt_disponivel = Integer.parseInt(txt_qntDisponivelLivro.getText());
+            autor = txt_autorLivro.getText().trim();
+            isbn = txt_isbnLivro.getText().trim();
+            titulo = txt_tituloLivro.getText().trim();
+            qnt_disponivelTxt = txt_qntDisponivelLivro.getText().trim();
+            LivroDTO livro = validations.alreadyExistsISBN(isbn);
+            if (autor.isEmpty() || isbn.isEmpty() || titulo.isEmpty() || qnt_disponivelTxt.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Não podem haver campos vazios.", "Erro", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            qnt_disponivel = Integer.parseInt(qnt_disponivelTxt);
+            if (isbn.length() < 10 || isbn.length() > 13) {
+                JOptionPane.showMessageDialog(this, "Insira um ISBN válido", "Erro", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            if (livro != null) {
+                JOptionPane.showMessageDialog(this, "Já existe um livro cadastrado com esse ISBN.", "Erro", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
 
             LivroDTO objLivroDTO = new LivroDTO();
             objLivroDTO.setAutor(autor);
             objLivroDTO.setIsbn(isbn);
             objLivroDTO.setTitulo(titulo);
             objLivroDTO.setQnt_disponivel(qnt_disponivel);
-
             LivroDAO objLivroDAO = new LivroDAO();
             objLivroDAO.cadastrarLivro(objLivroDTO);
+            clearFields();
         } catch (Exception erro) {
-            JOptionPane.showMessageDialog(null, "formLivroView - cadastrarLivro(): " + erro);
+            JOptionPane.showMessageDialog(null, "formLivroView - cadastrarLivro():\n" + erro);
         }
     }
 
@@ -305,18 +325,12 @@ public class formLivroVIEW extends javax.swing.JFrame {
         return isbn;
     }
 
-    private void excludeCliente() {
-        int id_cliente;
+    private void excludeLivro() {
+        int id_livro;
         LivroDAO objLivroDAO = new LivroDAO();
         LivroDTO objLivroDTO = objLivroDAO.pesquisarLivroISBN(collectISBN());
-        id_cliente = objLivroDTO.getId_livro();
+        id_livro = objLivroDTO.getId_livro();
         objLivroDAO.excludelivro(objLivroDTO);
-    }
-
-    private int generateRandomNumber() {
-        Random random = new Random();
-        int randomNumber = random.nextInt(999999);
-        return randomNumber;
     }
 
     private void listarLivros() {
@@ -325,11 +339,11 @@ public class formLivroVIEW extends javax.swing.JFrame {
             this.cbox_bookList.removeAllItems();
             ArrayList<LivroDTO> bookList = objLivroDAO.listarLivros();
             for (LivroDTO livro : bookList) {
-                String item = livro.getIsbn()+ " - " + livro.getTitulo();
+                String item = livro.getIsbn() + " - " + livro.getTitulo();
                 this.cbox_bookList.addItem(item);
             }
         } catch (Exception erro) {
-            JOptionPane.showMessageDialog(null, "formLivroVIEW - listarLivros(): " + erro);
+            JOptionPane.showMessageDialog(null, "formLivroVIEW - listarLivros():\n" + erro);
         }
     }
 
@@ -364,7 +378,7 @@ public class formLivroVIEW extends javax.swing.JFrame {
     private javax.swing.JPanel pnl_cadastro;
     private javax.swing.JPanel pnl_gerenciamentoCliente;
     private javax.swing.JTextField txt_autorLivro;
-    private javax.swing.JTextField txt_isbnLivro;
+    private javax.swing.JFormattedTextField txt_isbnLivro;
     private javax.swing.JTextField txt_qntDisponivelLivro;
     private javax.swing.JTextField txt_tituloLivro;
     // End of variables declaration//GEN-END:variables
