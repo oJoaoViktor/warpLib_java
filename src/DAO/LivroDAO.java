@@ -15,12 +15,16 @@ public class LivroDAO {
     ResultSet rs;
     ArrayList<LivroDTO> bookList = new ArrayList<>();
 
-    public void atualizarQuantidadeDisponivel(LivroDTO objLivroDTO) {
+    public void atualizarQuantidadeDisponivel(LivroDTO objLivroDTO, boolean action) {
         String sql = "update livro set qnt_disponivel=? where id_livro=?";
         conn = new ConexaoDAO().conectaBD();
         try {
             pstm = conn.prepareStatement(sql);
-            pstm.setInt(1, objLivroDTO.getQnt_disponivel() - 1);
+            if (action) {
+                pstm.setInt(1, objLivroDTO.getQnt_disponivel() - 1);
+            } else {
+                pstm.setInt(1, objLivroDTO.getQnt_disponivel() + 1);
+            }
             pstm.setInt(2, objLivroDTO.getId_livro());
             pstm.executeUpdate();
         } catch (Exception erro) {

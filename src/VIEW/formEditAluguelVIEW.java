@@ -143,6 +143,10 @@ public class formEditAluguelVIEW extends javax.swing.JDialog {
     private void btn_devolverLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_devolverLivroActionPerformed
         AluguelDTO aluguelEmGerenciamento = new AluguelDTO();
         aluguelEmGerenciamento = coletarLivroEmGerenciamento();
+        LivroDTO objLivroDTO = new LivroDTO();
+        LivroDAO objLivroDAO = new LivroDAO();
+        objLivroDTO = coletarLivro();
+        objLivroDAO.atualizarQuantidadeDisponivel(objLivroDTO, false);
         atualizarAluguel(aluguelEmGerenciamento);
     }//GEN-LAST:event_btn_devolverLivroActionPerformed
 
@@ -206,6 +210,13 @@ public class formEditAluguelVIEW extends javax.swing.JDialog {
         objAluguelDTO.setId_livro(objLivroDTO.getId_livro());
         AluguelDAO objAluguelDAO = new AluguelDAO();
         return objAluguelDAO.pesquisarAluguelPorLinha(objAluguelDTO);
+    }
+
+    private LivroDTO coletarLivro() {
+        LivroDTO objLivroDTO = new LivroDTO();
+        LivroDAO objLivroDAO = new LivroDAO();
+        objLivroDTO = objLivroDAO.pesquisarLivroTitulo(objAluguelDTO.getNome_livro());
+        return objLivroDTO;
     }
 
     private void preencherCampos(AluguelDTO objAluguelDTO) {

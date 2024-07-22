@@ -229,15 +229,13 @@ public class formAluguelVIEW extends javax.swing.JFrame {
             objAluguelDTO.setId_livro(objLivroDTO.getId_livro());
             objAluguelDTO.setData_aluguel(Date.valueOf(LocalDate.now()));
             objAluguelDTO.setData_devolucao(Date.valueOf(LocalDate.now().plusDays(periodo)));
-            System.out.println(objClienteDTO.getId_cliente());
-            System.out.println(objLivroDTO.getId_livro());
             AluguelDAO objAluguelDAO = new AluguelDAO();
             if (objAluguelDAO.pesquisarAluguelPorLinha(objAluguelDTO) != null) {
                 JOptionPane.showMessageDialog(this, "O cliente já tem uma reserva igual.", "Reserva já existe", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             objAluguelDAO.cadastrarAluguel(objAluguelDTO);
-            objLivroDAO.atualizarQuantidadeDisponivel(objLivroDTO);
+            objLivroDAO.atualizarQuantidadeDisponivel(objLivroDTO, true);
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(null, "formAluguelVIEW - alugarLivro(): " + erro);
         }

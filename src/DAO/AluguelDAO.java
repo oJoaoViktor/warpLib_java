@@ -149,13 +149,14 @@ public class AluguelDAO {
                 aluguelSelecionado.setData_aluguel(rs.getDate("data_aluguel"));
                 aluguelSelecionado.setData_devolucao(rs.getDate("data_devolucao"));
                 aluguelSelecionado.setDevolvido(rs.getBoolean("devolvido"));
+                return aluguelSelecionado;
             }
         } catch (SQLException erro) {
             JOptionPane.showMessageDialog(null, "AluguelDAO - pesquisarAluguelPorLinha():" + erro);
         } finally {
             closeResources(conn, pstm);
         }
-        return aluguelSelecionado;
+        return null;
     }
 
 //    public boolean alreadyExistsRent(AluguelDTO objAluguelDTO) {
