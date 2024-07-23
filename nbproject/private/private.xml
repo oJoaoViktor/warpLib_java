@@ -3,8 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/joaoa/Documents/Projects/warpLib_java/src/DAO/AluguelDAO.java</file>
-            <file>file:/C:/Users/joaoa/Documents/Projects/warpLib_java/src/VIEW/formAluguelVIEW.java</file>
+            <file>file:/C:/Users/TRJ1JVL/Documents/NetBeansProjects/WarpLibProject/src/VIEW/formClienteVIEW.java</file>
+            <file>file:/C:/Users/TRJ1JVL/Documents/NetBeansProjects/WarpLibProject/src/DAO/ClienteDAO.java</file>
+            <file>file:/C:/Users/TRJ1JVL/Documents/NetBeansProjects/WarpLibProject/src/DTO/ClienteDTO.java</file>
         </group>
     </open-files>
 </project-private>
