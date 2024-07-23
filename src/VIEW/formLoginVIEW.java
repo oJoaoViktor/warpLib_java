@@ -33,11 +33,12 @@ public class formLoginVIEW extends javax.swing.JFrame {
 
         pnl_background = new javax.swing.JPanel();
         pnl_formLogin = new javax.swing.JPanel();
-        lbl_username = new javax.swing.JLabel();
         txt_username = new javax.swing.JTextField();
         lbl_password = new javax.swing.JLabel();
         txt_password = new javax.swing.JPasswordField();
         btn_login = new javax.swing.JButton();
+        lbl_username1 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         lbl_backgroundImage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -53,26 +54,20 @@ public class formLoginVIEW extends javax.swing.JFrame {
         pnl_formLogin.setPreferredSize(new java.awt.Dimension(400, 200));
         pnl_formLogin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lbl_username.setFont(new java.awt.Font("Inter ExtraBold", 0, 14)); // NOI18N
-        lbl_username.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_username.setText("Usuário");
-        pnl_formLogin.add(lbl_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 27, -1, -1));
-
-        txt_username.setBackground(new java.awt.Color(255, 255, 255));
         txt_username.setBorder(null);
-        pnl_formLogin.add(txt_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 320, -1));
+        pnl_formLogin.add(txt_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 320, -1));
 
         lbl_password.setBackground(new java.awt.Color(255, 255, 255));
-        lbl_password.setFont(new java.awt.Font("Inter ExtraBold", 0, 14)); // NOI18N
+        lbl_password.setFont(new java.awt.Font("Inter ExtraBold", 1, 14)); // NOI18N
         lbl_password.setForeground(new java.awt.Color(255, 255, 255));
         lbl_password.setText("Senha");
-        pnl_formLogin.add(lbl_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 85, -1, -1));
+        pnl_formLogin.add(lbl_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
 
         txt_password.setBorder(null);
-        pnl_formLogin.add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 109, 316, -1));
+        pnl_formLogin.add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 316, -1));
 
         btn_login.setBackground(new java.awt.Color(150, 150, 150));
-        btn_login.setFont(new java.awt.Font("Inter ExtraBold", 0, 12)); // NOI18N
+        btn_login.setFont(new java.awt.Font("Inter ExtraBold", 1, 14)); // NOI18N
         btn_login.setForeground(new java.awt.Color(255, 255, 255));
         btn_login.setText("Login");
         btn_login.setBorder(null);
@@ -87,9 +82,19 @@ public class formLoginVIEW extends javax.swing.JFrame {
                 btn_loginActionPerformed(evt);
             }
         });
-        pnl_formLogin.add(btn_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 149, 316, -1));
+        pnl_formLogin.add(btn_login, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 316, 30));
 
-        pnl_background.add(pnl_formLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 400, 200));
+        lbl_username1.setFont(new java.awt.Font("Inter ExtraBold", 1, 14)); // NOI18N
+        lbl_username1.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_username1.setText("Usuário");
+        pnl_formLogin.add(lbl_username1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(250, 255, 0));
+        jLabel1.setText("WARP LIB");
+        pnl_formLogin.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
+
+        pnl_background.add(pnl_formLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 400, 300));
 
         lbl_backgroundImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/background.png"))); // NOI18N
         pnl_background.add(lbl_backgroundImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -170,9 +175,10 @@ public class formLoginVIEW extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_login;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbl_backgroundImage;
     private javax.swing.JLabel lbl_password;
-    private javax.swing.JLabel lbl_username;
+    private javax.swing.JLabel lbl_username1;
     private javax.swing.JPanel pnl_background;
     private javax.swing.JPanel pnl_formLogin;
     private javax.swing.JPasswordField txt_password;

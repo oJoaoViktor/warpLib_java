@@ -44,17 +44,30 @@ public class formEditLivroVIEW extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        pnl_cadastro.setBackground(new java.awt.Color(48, 48, 48));
         pnl_cadastro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_cadastro.setPreferredSize(new java.awt.Dimension(400, 400));
 
+        lbl_tituloCadastro.setBackground(new java.awt.Color(250, 255, 0));
+        lbl_tituloCadastro.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbl_tituloCadastro.setForeground(new java.awt.Color(250, 255, 0));
         lbl_tituloCadastro.setText("EDITAR LIVRO");
 
+        lbl_isbnLivro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbl_isbnLivro.setForeground(new java.awt.Color(255, 255, 255));
         lbl_isbnLivro.setText("ISBN:");
 
+        lbl_tituloLivro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbl_tituloLivro.setForeground(new java.awt.Color(255, 255, 255));
         lbl_tituloLivro.setText("Título:");
 
+        lbl_autorLivro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbl_autorLivro.setForeground(new java.awt.Color(255, 255, 255));
         lbl_autorLivro.setText("Autor:");
 
+        btn_confirmarEdicaoLivro.setBackground(new java.awt.Color(150, 150, 150));
+        btn_confirmarEdicaoLivro.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_confirmarEdicaoLivro.setForeground(new java.awt.Color(255, 255, 255));
         btn_confirmarEdicaoLivro.setText("Confirmar edição");
         btn_confirmarEdicaoLivro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,6 +75,8 @@ public class formEditLivroVIEW extends javax.swing.JDialog {
             }
         });
 
+        lbl_qntDisponivelLivro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbl_qntDisponivelLivro.setForeground(new java.awt.Color(255, 255, 255));
         lbl_qntDisponivelLivro.setText("Quantidade de exemplares:");
 
         try {
@@ -75,30 +90,29 @@ public class formEditLivroVIEW extends javax.swing.JDialog {
         pnl_cadastroLayout.setHorizontalGroup(
             pnl_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_cadastroLayout.createSequentialGroup()
-                .addGroup(pnl_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnl_cadastroLayout.createSequentialGroup()
-                        .addGap(169, 169, 169)
-                        .addComponent(lbl_tituloCadastro))
-                    .addGroup(pnl_cadastroLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(pnl_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lbl_isbnLivro)
-                            .addComponent(txt_tituloLivro)
-                            .addComponent(lbl_tituloLivro)
-                            .addComponent(txt_autorLivro)
-                            .addComponent(lbl_autorLivro)
-                            .addComponent(btn_confirmarEdicaoLivro, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
-                            .addComponent(txt_qntDisponivelLivro)
-                            .addComponent(lbl_qntDisponivelLivro)
-                            .addComponent(txt_isbnLivro))))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addGroup(pnl_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbl_isbnLivro)
+                    .addComponent(txt_tituloLivro)
+                    .addComponent(lbl_tituloLivro)
+                    .addComponent(txt_autorLivro)
+                    .addComponent(lbl_autorLivro)
+                    .addComponent(btn_confirmarEdicaoLivro, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
+                    .addComponent(txt_qntDisponivelLivro)
+                    .addComponent(lbl_qntDisponivelLivro)
+                    .addComponent(txt_isbnLivro))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_cadastroLayout.createSequentialGroup()
+                .addContainerGap(139, Short.MAX_VALUE)
+                .addComponent(lbl_tituloCadastro)
+                .addGap(136, 136, 136))
         );
         pnl_cadastroLayout.setVerticalGroup(
             pnl_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_cadastroLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(37, 37, 37)
                 .addComponent(lbl_tituloCadastro)
-                .addGap(42, 42, 42)
+                .addGap(38, 38, 38)
                 .addComponent(lbl_isbnLivro)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_isbnLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -114,9 +128,9 @@ public class formEditLivroVIEW extends javax.swing.JDialog {
                 .addComponent(lbl_qntDisponivelLivro)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_qntDisponivelLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
                 .addComponent(btn_confirmarEdicaoLivro)
-                .addGap(22, 22, 22))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -129,9 +143,7 @@ public class formEditLivroVIEW extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(pnl_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(pnl_cadastro, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
         );
 
         pack();

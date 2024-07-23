@@ -41,17 +41,30 @@ public class formEditClienteVIEW extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        pnl_cadastro.setBackground(new java.awt.Color(48, 48, 48));
         pnl_cadastro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_cadastro.setPreferredSize(new java.awt.Dimension(400, 400));
 
+        lbl_tituloCadastro.setBackground(new java.awt.Color(250, 255, 0));
+        lbl_tituloCadastro.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbl_tituloCadastro.setForeground(new java.awt.Color(250, 255, 0));
         lbl_tituloCadastro.setText("EDITAR CLIENTE");
 
+        lbl_nomeCompleto.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbl_nomeCompleto.setForeground(new java.awt.Color(255, 255, 255));
         lbl_nomeCompleto.setText("Nome completo:");
 
+        lbl_emailUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbl_emailUsuario.setForeground(new java.awt.Color(255, 255, 255));
         lbl_emailUsuario.setText("E-mail:");
 
+        lbl_cpfUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbl_cpfUsuario.setForeground(new java.awt.Color(255, 255, 255));
         lbl_cpfUsuario.setText("CPF:");
 
+        btn_confirmarEdicao.setBackground(new java.awt.Color(150, 150, 150));
+        btn_confirmarEdicao.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_confirmarEdicao.setForeground(new java.awt.Color(255, 255, 255));
         btn_confirmarEdicao.setText("Confirmar edição");
         btn_confirmarEdicao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,28 +83,27 @@ public class formEditClienteVIEW extends javax.swing.JDialog {
         pnl_cadastroLayout.setHorizontalGroup(
             pnl_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_cadastroLayout.createSequentialGroup()
-                .addGroup(pnl_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnl_cadastroLayout.createSequentialGroup()
-                        .addGap(165, 165, 165)
-                        .addComponent(lbl_tituloCadastro))
-                    .addGroup(pnl_cadastroLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(pnl_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lbl_nomeCompleto)
-                            .addComponent(txt_nomeUsuario)
-                            .addComponent(txt_emailUsuario)
-                            .addComponent(lbl_emailUsuario)
-                            .addComponent(lbl_cpfUsuario)
-                            .addComponent(btn_confirmarEdicao, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
-                            .addComponent(txt_cpfUsuario))))
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addGroup(pnl_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbl_nomeCompleto)
+                    .addComponent(txt_nomeUsuario)
+                    .addComponent(txt_emailUsuario)
+                    .addComponent(lbl_emailUsuario)
+                    .addComponent(lbl_cpfUsuario)
+                    .addComponent(btn_confirmarEdicao, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
+                    .addComponent(txt_cpfUsuario))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_cadastroLayout.createSequentialGroup()
+                .addContainerGap(130, Short.MAX_VALUE)
+                .addComponent(lbl_tituloCadastro)
+                .addGap(127, 127, 127))
         );
         pnl_cadastroLayout.setVerticalGroup(
             pnl_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_cadastroLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(38, 38, 38)
                 .addComponent(lbl_tituloCadastro)
-                .addGap(42, 42, 42)
+                .addGap(37, 37, 37)
                 .addComponent(lbl_nomeCompleto)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_nomeUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -105,7 +117,7 @@ public class formEditClienteVIEW extends javax.swing.JDialog {
                 .addComponent(txt_cpfUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
                 .addComponent(btn_confirmarEdicao)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -119,8 +131,9 @@ public class formEditClienteVIEW extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(pnl_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnl_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();

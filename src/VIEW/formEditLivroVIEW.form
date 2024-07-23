@@ -31,16 +31,16 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="pnl_cadastro" min="-2" max="-2" attributes="0"/>
-          </Group>
+          <Component id="pnl_cadastro" alignment="0" pref="476" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="pnl_cadastro">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="30" green="30" red="30" type="rgb"/>
+        </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
             <LineBorder/>
@@ -54,37 +54,34 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
-                          <Component id="lbl_tituloCadastro" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="lbl_isbnLivro" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txt_tituloLivro" alignment="0" max="32767" attributes="0"/>
-                              <Component id="lbl_tituloLivro" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txt_autorLivro" alignment="0" max="32767" attributes="0"/>
-                              <Component id="lbl_autorLivro" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="btn_confirmarEdicaoLivro" alignment="0" pref="318" max="32767" attributes="0"/>
-                              <Component id="txt_qntDisponivelLivro" alignment="0" max="32767" attributes="0"/>
-                              <Component id="lbl_qntDisponivelLivro" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="txt_isbnLivro" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="lbl_isbnLivro" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_tituloLivro" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lbl_tituloLivro" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_autorLivro" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lbl_autorLivro" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="btn_confirmarEdicaoLivro" alignment="0" pref="318" max="32767" attributes="0"/>
+                      <Component id="txt_qntDisponivelLivro" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lbl_qntDisponivelLivro" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="txt_isbnLivro" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="40" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace pref="139" max="32767" attributes="0"/>
+                  <Component id="lbl_tituloCadastro" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                   <Component id="lbl_tituloCadastro" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="lbl_isbnLivro" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="txt_isbnLivro" min="-2" max="-2" attributes="0"/>
@@ -100,9 +97,9 @@
                   <Component id="lbl_qntDisponivelLivro" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Component id="txt_qntDisponivelLivro" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="32" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   <Component id="btn_confirmarEdicaoLivro" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                  <EmptySpace pref="46" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -110,16 +107,37 @@
       <SubComponents>
         <Component class="javax.swing.JLabel" name="lbl_tituloCadastro">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="ff" red="fa" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="18" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="ff" red="fa" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="EDITAR LIVRO"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_isbnLivro">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="ISBN:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_tituloLivro">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="T&#xed;tulo:"/>
           </Properties>
         </Component>
@@ -129,11 +147,26 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_autorLivro">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Autor:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btn_confirmarEdicaoLivro">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="96" green="96" red="96" type="rgb"/>
+            </Property>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="15" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Confirmar edi&#xe7;&#xe3;o"/>
           </Properties>
           <Events>
@@ -144,6 +177,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lbl_qntDisponivelLivro">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Segoe UI" size="14" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Quantidade de exemplares:"/>
           </Properties>
         </Component>

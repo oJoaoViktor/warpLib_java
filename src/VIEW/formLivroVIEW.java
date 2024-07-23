@@ -52,20 +52,38 @@ public class formLivroVIEW extends javax.swing.JFrame {
         cbox_bookList = new javax.swing.JComboBox<>();
         btn_excluirLivro = new javax.swing.JButton();
         btn_voltarHome = new javax.swing.JButton();
+        lbl_tituloLivro1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        pnl_cadastro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pnl_cadastro.setBackground(new java.awt.Color(48, 48, 48));
+        pnl_cadastro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        pnl_cadastro.setForeground(new java.awt.Color(48, 48, 48));
         pnl_cadastro.setPreferredSize(new java.awt.Dimension(400, 400));
 
+        lbl_tituloCadastro.setBackground(new java.awt.Color(250, 255, 0));
+        lbl_tituloCadastro.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbl_tituloCadastro.setForeground(new java.awt.Color(250, 255, 0));
         lbl_tituloCadastro.setText("CADASTRO");
 
+        lbl_isbnLivro.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_isbnLivro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbl_isbnLivro.setForeground(new java.awt.Color(255, 255, 255));
         lbl_isbnLivro.setText("ISBN:");
 
+        lbl_tituloLivro.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_tituloLivro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbl_tituloLivro.setForeground(new java.awt.Color(255, 255, 255));
         lbl_tituloLivro.setText("Título:");
 
+        lbl_autorLivro.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_autorLivro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbl_autorLivro.setForeground(new java.awt.Color(255, 255, 255));
         lbl_autorLivro.setText("Autor:");
 
+        btn_cadastrarLivro.setBackground(new java.awt.Color(150, 150, 150));
+        btn_cadastrarLivro.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_cadastrarLivro.setForeground(new java.awt.Color(255, 255, 255));
         btn_cadastrarLivro.setText("Cadastrar Livro");
         btn_cadastrarLivro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +91,9 @@ public class formLivroVIEW extends javax.swing.JFrame {
             }
         });
 
+        lbl_qntDisponivelLivro.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_qntDisponivelLivro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbl_qntDisponivelLivro.setForeground(new java.awt.Color(255, 255, 255));
         lbl_qntDisponivelLivro.setText("Quantidade de exemplares:");
 
         try {
@@ -86,30 +107,29 @@ public class formLivroVIEW extends javax.swing.JFrame {
         pnl_cadastroLayout.setHorizontalGroup(
             pnl_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_cadastroLayout.createSequentialGroup()
-                .addGroup(pnl_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnl_cadastroLayout.createSequentialGroup()
-                        .addGap(169, 169, 169)
-                        .addComponent(lbl_tituloCadastro))
-                    .addGroup(pnl_cadastroLayout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(pnl_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lbl_isbnLivro)
-                            .addComponent(txt_tituloLivro, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
-                            .addComponent(lbl_tituloLivro)
-                            .addComponent(txt_autorLivro, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
-                            .addComponent(lbl_autorLivro)
-                            .addComponent(btn_cadastrarLivro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txt_qntDisponivelLivro, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
-                            .addComponent(lbl_qntDisponivelLivro)
-                            .addComponent(txt_isbnLivro))))
+                .addGap(40, 40, 40)
+                .addGroup(pnl_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lbl_isbnLivro)
+                    .addComponent(txt_tituloLivro, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
+                    .addComponent(lbl_tituloLivro)
+                    .addComponent(txt_autorLivro, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
+                    .addComponent(lbl_autorLivro)
+                    .addComponent(btn_cadastrarLivro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txt_qntDisponivelLivro, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
+                    .addComponent(lbl_qntDisponivelLivro)
+                    .addComponent(txt_isbnLivro))
                 .addContainerGap(40, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_cadastroLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_tituloCadastro)
+                .addGap(146, 146, 146))
         );
         pnl_cadastroLayout.setVerticalGroup(
             pnl_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_cadastroLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(34, 34, 34)
                 .addComponent(lbl_tituloCadastro)
-                .addGap(42, 42, 42)
+                .addGap(41, 41, 41)
                 .addComponent(lbl_isbnLivro)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_isbnLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -125,19 +145,29 @@ public class formLivroVIEW extends javax.swing.JFrame {
                 .addComponent(lbl_qntDisponivelLivro)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_qntDisponivelLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
                 .addComponent(btn_cadastrarLivro)
-                .addGap(23, 23, 23))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         getContentPane().add(pnl_cadastro, java.awt.BorderLayout.LINE_START);
 
+        pnl_gerenciamentoCliente.setBackground(new java.awt.Color(48, 48, 48));
         pnl_gerenciamentoCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        lbl_tituloGerenciamento.setBackground(new java.awt.Color(250, 255, 0));
+        lbl_tituloGerenciamento.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbl_tituloGerenciamento.setForeground(new java.awt.Color(250, 255, 0));
         lbl_tituloGerenciamento.setText("GERENCIAMENTO DE LIVROS");
 
+        lbl_selecioneLivro.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_selecioneLivro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbl_selecioneLivro.setForeground(new java.awt.Color(255, 255, 255));
         lbl_selecioneLivro.setText("Selecione o livro:");
 
+        btn_editarLivro.setBackground(new java.awt.Color(150, 150, 150));
+        btn_editarLivro.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_editarLivro.setForeground(new java.awt.Color(255, 255, 255));
         btn_editarLivro.setText("Editar");
         btn_editarLivro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,6 +175,9 @@ public class formLivroVIEW extends javax.swing.JFrame {
             }
         });
 
+        btn_excluirLivro.setBackground(new java.awt.Color(150, 150, 150));
+        btn_excluirLivro.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_excluirLivro.setForeground(new java.awt.Color(255, 255, 255));
         btn_excluirLivro.setText("Excluir");
         btn_excluirLivro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,6 +185,9 @@ public class formLivroVIEW extends javax.swing.JFrame {
             }
         });
 
+        btn_voltarHome.setBackground(new java.awt.Color(150, 150, 150));
+        btn_voltarHome.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_voltarHome.setForeground(new java.awt.Color(255, 255, 255));
         btn_voltarHome.setText("Voltar");
         btn_voltarHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -159,46 +195,52 @@ public class formLivroVIEW extends javax.swing.JFrame {
             }
         });
 
+        lbl_tituloLivro1.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_tituloLivro1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbl_tituloLivro1.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_tituloLivro1.setText("Ações:");
+
         javax.swing.GroupLayout pnl_gerenciamentoClienteLayout = new javax.swing.GroupLayout(pnl_gerenciamentoCliente);
         pnl_gerenciamentoCliente.setLayout(pnl_gerenciamentoClienteLayout);
         pnl_gerenciamentoClienteLayout.setHorizontalGroup(
             pnl_gerenciamentoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_gerenciamentoClienteLayout.createSequentialGroup()
-                .addContainerGap(122, Short.MAX_VALUE)
-                .addGroup(pnl_gerenciamentoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_gerenciamentoClienteLayout.createSequentialGroup()
-                        .addComponent(lbl_tituloGerenciamento)
-                        .addGap(122, 122, 122))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_gerenciamentoClienteLayout.createSequentialGroup()
-                        .addComponent(btn_voltarHome)
-                        .addContainerGap())))
             .addGroup(pnl_gerenciamentoClienteLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
                 .addGroup(pnl_gerenciamentoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_selecioneLivro)
                     .addGroup(pnl_gerenciamentoClienteLayout.createSequentialGroup()
-                        .addComponent(btn_editarLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_excluirLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(cbox_bookList, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(40, 40, 40)
+                        .addGroup(pnl_gerenciamentoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btn_voltarHome)
+                            .addGroup(pnl_gerenciamentoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lbl_selecioneLivro)
+                                .addGroup(pnl_gerenciamentoClienteLayout.createSequentialGroup()
+                                    .addComponent(btn_editarLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btn_excluirLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cbox_bookList, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lbl_tituloLivro1))))
+                    .addGroup(pnl_gerenciamentoClienteLayout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(lbl_tituloGerenciamento)))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         pnl_gerenciamentoClienteLayout.setVerticalGroup(
             pnl_gerenciamentoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_gerenciamentoClienteLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(34, 34, 34)
                 .addComponent(lbl_tituloGerenciamento)
-                .addGap(42, 42, 42)
+                .addGap(41, 41, 41)
                 .addComponent(lbl_selecioneLivro)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbox_bookList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lbl_tituloLivro1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnl_gerenciamentoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_editarLivro)
                     .addComponent(btn_excluirLivro))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 205, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
                 .addComponent(btn_voltarHome)
-                .addContainerGap())
+                .addGap(45, 45, 45))
         );
 
         getContentPane().add(pnl_gerenciamentoCliente, java.awt.BorderLayout.CENTER);
@@ -375,6 +417,7 @@ public class formLivroVIEW extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_tituloCadastro;
     private javax.swing.JLabel lbl_tituloGerenciamento;
     private javax.swing.JLabel lbl_tituloLivro;
+    private javax.swing.JLabel lbl_tituloLivro1;
     private javax.swing.JPanel pnl_cadastro;
     private javax.swing.JPanel pnl_gerenciamentoCliente;
     private javax.swing.JTextField txt_autorLivro;

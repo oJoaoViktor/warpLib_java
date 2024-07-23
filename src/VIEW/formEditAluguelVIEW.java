@@ -45,17 +45,30 @@ public class formEditAluguelVIEW extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        pnl_cadastro.setBackground(new java.awt.Color(48, 48, 48));
         pnl_cadastro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         pnl_cadastro.setPreferredSize(new java.awt.Dimension(400, 400));
 
+        lbl_tituloGerenciamentoAluguel.setBackground(new java.awt.Color(250, 255, 0));
+        lbl_tituloGerenciamentoAluguel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbl_tituloGerenciamentoAluguel.setForeground(new java.awt.Color(250, 255, 0));
         lbl_tituloGerenciamentoAluguel.setText("GERENCIAR ALUGUEL");
 
+        lbl_nomeCliente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbl_nomeCliente.setForeground(new java.awt.Color(255, 255, 255));
         lbl_nomeCliente.setText("Cliente:");
 
+        lbl_tituloLivro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbl_tituloLivro.setForeground(new java.awt.Color(255, 255, 255));
         lbl_tituloLivro.setText("Livro:");
 
+        lbl_dataEmprestimo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbl_dataEmprestimo.setForeground(new java.awt.Color(255, 255, 255));
         lbl_dataEmprestimo.setText("Data do empréstimo:");
 
+        btn_devolverLivro.setBackground(new java.awt.Color(150, 150, 150));
+        btn_devolverLivro.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_devolverLivro.setForeground(new java.awt.Color(255, 255, 255));
         btn_devolverLivro.setText("Devolver Livro");
         btn_devolverLivro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -63,8 +76,12 @@ public class formEditAluguelVIEW extends javax.swing.JDialog {
             }
         });
 
+        lbl_dataDevolucao.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbl_dataDevolucao.setForeground(new java.awt.Color(255, 255, 255));
         lbl_dataDevolucao.setText("Data para devolução:");
 
+        lbl_situacaoDevolutiva.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lbl_situacaoDevolutiva.setForeground(new java.awt.Color(255, 255, 255));
         lbl_situacaoDevolutiva.setText("Situação:");
 
         javax.swing.GroupLayout pnl_cadastroLayout = new javax.swing.GroupLayout(pnl_cadastro);
@@ -73,9 +90,6 @@ public class formEditAluguelVIEW extends javax.swing.JDialog {
             pnl_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_cadastroLayout.createSequentialGroup()
                 .addGroup(pnl_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnl_cadastroLayout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(lbl_tituloGerenciamentoAluguel))
                     .addGroup(pnl_cadastroLayout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addGroup(pnl_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -89,7 +103,10 @@ public class formEditAluguelVIEW extends javax.swing.JDialog {
                             .addComponent(txt_dataDevolucao)
                             .addComponent(lbl_dataDevolucao)
                             .addComponent(lbl_situacaoDevolutiva)
-                            .addComponent(txt_situacaoDevolutiva))))
+                            .addComponent(txt_situacaoDevolutiva)))
+                    .addGroup(pnl_cadastroLayout.createSequentialGroup()
+                        .addGap(106, 106, 106)
+                        .addComponent(lbl_tituloGerenciamentoAluguel)))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         pnl_cadastroLayout.setVerticalGroup(
@@ -117,9 +134,9 @@ public class formEditAluguelVIEW extends javax.swing.JDialog {
                 .addComponent(lbl_situacaoDevolutiva)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_situacaoDevolutiva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addComponent(btn_devolverLivro)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -133,8 +150,9 @@ public class formEditAluguelVIEW extends javax.swing.JDialog {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(pnl_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnl_cadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();

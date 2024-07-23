@@ -46,18 +46,30 @@ public class formClienteVIEW extends javax.swing.JFrame {
         cbox_clientList = new javax.swing.JComboBox<>();
         btn_excluir = new javax.swing.JButton();
         btn_voltar = new javax.swing.JButton();
+        lbl_emailUsuario1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        pnl_cadastro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pnl_cadastro.setBackground(new java.awt.Color(48, 48, 48));
+        pnl_cadastro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        pnl_cadastro.setForeground(new java.awt.Color(255, 255, 255));
         pnl_cadastro.setPreferredSize(new java.awt.Dimension(400, 400));
 
+        lbl_tituloCadastro.setBackground(new java.awt.Color(48, 48, 48));
+        lbl_tituloCadastro.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbl_tituloCadastro.setForeground(new java.awt.Color(250, 255, 0));
         lbl_tituloCadastro.setText("CADASTRO");
 
+        lbl_nomeCompleto.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        lbl_nomeCompleto.setForeground(new java.awt.Color(255, 255, 255));
         lbl_nomeCompleto.setText("Nome completo:");
 
+        lbl_emailUsuario.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        lbl_emailUsuario.setForeground(new java.awt.Color(255, 255, 255));
         lbl_emailUsuario.setText("E-mail:");
 
+        lbl_cpfUsuario.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        lbl_cpfUsuario.setForeground(new java.awt.Color(255, 255, 255));
         lbl_cpfUsuario.setText("CPF:");
 
         try {
@@ -66,6 +78,9 @@ public class formClienteVIEW extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
+        btn_cadastrarCliente.setBackground(new java.awt.Color(150, 150, 150));
+        btn_cadastrarCliente.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_cadastrarCliente.setForeground(new java.awt.Color(255, 255, 255));
         btn_cadastrarCliente.setText("Cadastrar cliente");
         btn_cadastrarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,9 +95,6 @@ public class formClienteVIEW extends javax.swing.JFrame {
             .addGroup(pnl_cadastroLayout.createSequentialGroup()
                 .addGroup(pnl_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnl_cadastroLayout.createSequentialGroup()
-                        .addGap(169, 169, 169)
-                        .addComponent(lbl_tituloCadastro))
-                    .addGroup(pnl_cadastroLayout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addGroup(pnl_cadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lbl_nomeCompleto)
@@ -91,7 +103,10 @@ public class formClienteVIEW extends javax.swing.JFrame {
                             .addComponent(lbl_emailUsuario)
                             .addComponent(lbl_cpfUsuario)
                             .addComponent(btn_cadastrarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txt_cpfUsuario))))
+                            .addComponent(txt_cpfUsuario)))
+                    .addGroup(pnl_cadastroLayout.createSequentialGroup()
+                        .addGap(153, 153, 153)
+                        .addComponent(lbl_tituloCadastro)))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         pnl_cadastroLayout.setVerticalGroup(
@@ -113,17 +128,26 @@ public class formClienteVIEW extends javax.swing.JFrame {
                 .addComponent(txt_cpfUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
                 .addComponent(btn_cadastrarCliente)
-                .addContainerGap(74, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         getContentPane().add(pnl_cadastro, java.awt.BorderLayout.LINE_START);
 
+        pnl_gerenciamentoCliente.setBackground(new java.awt.Color(48, 48, 48));
         pnl_gerenciamentoCliente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        lbl_tituloGerenciamento.setBackground(new java.awt.Color(48, 48, 48));
+        lbl_tituloGerenciamento.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lbl_tituloGerenciamento.setForeground(new java.awt.Color(250, 255, 0));
         lbl_tituloGerenciamento.setText("GERENCIAMENTO DE CLIENTES");
 
+        lbl_selecioneCliente.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        lbl_selecioneCliente.setForeground(new java.awt.Color(255, 255, 255));
         lbl_selecioneCliente.setText("Selecione o cliente:");
 
+        btn_editar.setBackground(new java.awt.Color(150, 150, 150));
+        btn_editar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_editar.setForeground(new java.awt.Color(255, 255, 255));
         btn_editar.setText("Editar");
         btn_editar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,6 +155,9 @@ public class formClienteVIEW extends javax.swing.JFrame {
             }
         });
 
+        btn_excluir.setBackground(new java.awt.Color(150, 150, 150));
+        btn_excluir.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_excluir.setForeground(new java.awt.Color(255, 255, 255));
         btn_excluir.setText("Excluir");
         btn_excluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,6 +165,9 @@ public class formClienteVIEW extends javax.swing.JFrame {
             }
         });
 
+        btn_voltar.setBackground(new java.awt.Color(150, 150, 150));
+        btn_voltar.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_voltar.setForeground(new java.awt.Color(255, 255, 255));
         btn_voltar.setText("Voltar");
         btn_voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,29 +175,31 @@ public class formClienteVIEW extends javax.swing.JFrame {
             }
         });
 
+        lbl_emailUsuario1.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        lbl_emailUsuario1.setForeground(new java.awt.Color(255, 255, 255));
+        lbl_emailUsuario1.setText("Ações:");
+
         javax.swing.GroupLayout pnl_gerenciamentoClienteLayout = new javax.swing.GroupLayout(pnl_gerenciamentoCliente);
         pnl_gerenciamentoCliente.setLayout(pnl_gerenciamentoClienteLayout);
         pnl_gerenciamentoClienteLayout.setHorizontalGroup(
             pnl_gerenciamentoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnl_gerenciamentoClienteLayout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addGroup(pnl_gerenciamentoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbl_selecioneCliente)
-                    .addGroup(pnl_gerenciamentoClienteLayout.createSequentialGroup()
-                        .addComponent(btn_editar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(cbox_clientList, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnl_gerenciamentoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btn_voltar)
+                    .addGroup(pnl_gerenciamentoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(lbl_emailUsuario1)
+                        .addComponent(lbl_selecioneCliente)
+                        .addGroup(pnl_gerenciamentoClienteLayout.createSequentialGroup()
+                            .addComponent(btn_editar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(btn_excluir, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cbox_clientList, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(40, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_gerenciamentoClienteLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(pnl_gerenciamentoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_gerenciamentoClienteLayout.createSequentialGroup()
-                        .addComponent(lbl_tituloGerenciamento)
-                        .addGap(116, 116, 116))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnl_gerenciamentoClienteLayout.createSequentialGroup()
-                        .addComponent(btn_voltar)
-                        .addContainerGap())))
+                .addComponent(lbl_tituloGerenciamento)
+                .addGap(63, 63, 63))
         );
         pnl_gerenciamentoClienteLayout.setVerticalGroup(
             pnl_gerenciamentoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,13 +210,15 @@ public class formClienteVIEW extends javax.swing.JFrame {
                 .addComponent(lbl_selecioneCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cbox_clientList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
+                .addComponent(lbl_emailUsuario1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(pnl_gerenciamentoClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_editar)
                     .addComponent(btn_excluir))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 205, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
                 .addComponent(btn_voltar)
-                .addContainerGap())
+                .addGap(55, 55, 55))
         );
 
         getContentPane().add(pnl_gerenciamentoCliente, java.awt.BorderLayout.CENTER);
@@ -356,6 +390,7 @@ public class formClienteVIEW extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbox_clientList;
     private javax.swing.JLabel lbl_cpfUsuario;
     private javax.swing.JLabel lbl_emailUsuario;
+    private javax.swing.JLabel lbl_emailUsuario1;
     private javax.swing.JLabel lbl_nomeCompleto;
     private javax.swing.JLabel lbl_selecioneCliente;
     private javax.swing.JLabel lbl_tituloCadastro;
